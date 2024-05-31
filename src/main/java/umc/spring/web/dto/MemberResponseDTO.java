@@ -17,4 +17,5 @@ public class MemberResponseDTO {
         Long memberId;
         LocalDateTime createdAt;
     }
+
 }
