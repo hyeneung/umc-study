@@ -32,4 +32,18 @@ public class Review {
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     private List<ReviewImage> reviewImageList;
 
+    public void setMember(Member member){
+        if(this.member != null)
+            member.getReviewList().remove(this);
+        this.member = member; // db에 반영
+        // db에 반영은 안되지만 객체지향 관점에서 반영.
+        member.getReviewList().add(this);
+    }
+
+    public void setStore(Store store){
+        if (this.store != null)
+            store.getReviewList().remove(this);
+        this.store = store;
+        store.getReviewList().add(this);
+    }
 }
